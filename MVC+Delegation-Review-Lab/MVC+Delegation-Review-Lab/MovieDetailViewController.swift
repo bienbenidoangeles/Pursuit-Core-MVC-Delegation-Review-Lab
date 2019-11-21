@@ -49,16 +49,17 @@ class MovieDetailViewController: UIViewController {
         previewFontSize?.text = "Preview Font Size: \(String(format:"%0.f",(validFontSize)))"
         fontSizeSlider?.value = Float(validFontSize)
         fontSizeStepper?.value = Double(validFontSize)
+        userFeedBackLabel?.font = UIFont.systemFont(ofSize: validFontSize)
     }
     
     func configureSlider(){
         fontSizeSlider.minimumValue = 1.0
-        fontSizeSlider.maximumValue = 80.0
+        fontSizeSlider.maximumValue = 95.0
     }
     
     func configureStepper(){
         fontSizeStepper.minimumValue = 1.0
-        fontSizeStepper.maximumValue = 80.0
+        fontSizeStepper.maximumValue = 95.0
         fontSizeStepper.stepValue = 1.0
     }
 
