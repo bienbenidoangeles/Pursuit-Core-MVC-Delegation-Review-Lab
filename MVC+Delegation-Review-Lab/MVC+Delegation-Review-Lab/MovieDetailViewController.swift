@@ -17,7 +17,7 @@ class MovieDetailViewController: UIViewController {
     var fontSizeD: CGFloat? {
         didSet{
             userFeedBackLabel?.font = UIFont.systemFont(ofSize: fontSizeD!)
-            previewFontSize?.text = "Preview Font Size: \(Int(fontSizeD!))"
+            previewFontSize?.text = "Preview Font Size: \(String(format:"%0.f",(fontSizeD!)))"
             configureSlider()
             configureStepper()
         }
