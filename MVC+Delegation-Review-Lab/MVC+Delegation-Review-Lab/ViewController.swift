@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadData()
         tableView.dataSource = self
+        //navigationController?.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
         
             detailVC.fontSizeD = fontSize
         } else {
-            print("failed to segue")
+            fatalError("failed to segue")
         }
     }
     
@@ -79,4 +80,11 @@ extension ViewController:UITableViewDataSource{
         return cell
     }
 }
+
+//experimental code
+//extension ViewController: UINavigationControllerDelegate{
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        <#code#>
+//    }
+//}
 
