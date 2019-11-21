@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
     }
     
-    var fontSize = CGFloat(20.0) {
+    var fontSize:CGFloat? {
         didSet{
             tableView.reloadData()
         }
@@ -28,11 +28,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadData()
         tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
     func loadData(){
         movies = Movie.allMovies
+        fontSize = 13.0
     }
     
     @IBAction func settings(segue: UIStoryboardSegue) {
@@ -40,7 +42,15 @@ class ViewController: UIViewController {
             fatalError("failed to access MovieDetailViewController")
         }
         
-        //fontSize = detailVC
+        fontSize = detailVC.fontSizeD
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? MovieDetailViewController else {
+            fatalError("failed to access MovieDetailViewController")
+        }
+        
+        detailVC.fontSizeD = fontSize
     }
 
 }
@@ -57,7 +67,8 @@ extension ViewController:UITableViewDataSource{
         let movie = movies[indexPath.row]
         cell.textLabel?.text = movie.name
         cell.detailTextLabel?.text = movie.year.description
-        cell.textLabel?.font = UIFont(name: "Times New Roman", size: fontSize)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: fontSize! )
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: fontSize! )
         
         return cell
     }

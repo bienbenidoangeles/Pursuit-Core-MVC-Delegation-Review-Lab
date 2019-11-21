@@ -79,38 +79,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Table View Font Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-h5-yJo">
-                                <rect key="frame" x="92" y="172" width="230" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Table View Font Size" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-h5-yJo">
+                                <rect key="frame" x="20" y="88" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-0S-a4R">
-                                <rect key="frame" x="148" y="326" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-0S-a4R">
+                                <rect key="frame" x="18" y="128.5" width="378" height="524.5"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="cgV-XM-7Xc" eventType="valueChanged" id="NQ8-gk-VR0"/>
+                                </connections>
                             </slider>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Zdu-3n-ss7">
-                                <rect key="frame" x="160" y="415" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Zdu-3n-ss7">
+                                <rect key="frame" x="160" y="672" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="cgV-XM-7Xc" eventType="valueChanged" id="MSd-QM-Y1E"/>
+                                </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview Font Size: NUM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3I-Zf-jbz">
-                                <rect key="frame" x="115" y="504" width="184" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT8-vu-Odx">
-                                <rect key="frame" x="150" y="601" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT8-vu-Odx">
+                                <rect key="frame" x="20" y="752.5" width="374" height="89.5"/>
                                 <state key="normal" title="tempBackButton"/>
                                 <connections>
                                     <segue destination="uTj-kf-Ui6" kind="unwind" unwindAction="settingsWithSegue:" id="kH6-hz-zp8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview Font Size: NUM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3I-Zf-jbz">
+                                <rect key="frame" x="20" y="724" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hT8-vu-Odx" firstAttribute="height" secondItem="cgi-Em-9a1" secondAttribute="height" multiplier="0.1" id="9ic-Md-rOY"/>
+                            <constraint firstItem="Txp-0S-a4R" firstAttribute="leading" secondItem="xgS-rA-0te" secondAttribute="leading" constant="20" id="BFW-iO-SSu"/>
+                            <constraint firstItem="Zdu-3n-ss7" firstAttribute="centerX" secondItem="cgi-Em-9a1" secondAttribute="centerX" id="FGL-fD-wRl"/>
+                            <constraint firstItem="hT8-vu-Odx" firstAttribute="leading" secondItem="xgS-rA-0te" secondAttribute="leading" constant="20" id="NKa-B8-ksr"/>
+                            <constraint firstItem="xgS-rA-0te" firstAttribute="trailing" secondItem="hT8-vu-Odx" secondAttribute="trailing" constant="20" id="QKT-gK-u87"/>
+                            <constraint firstItem="gRv-h5-yJo" firstAttribute="leading" secondItem="xgS-rA-0te" secondAttribute="leading" constant="20" id="R5W-gE-9A2"/>
+                            <constraint firstItem="xgS-rA-0te" firstAttribute="bottom" secondItem="hT8-vu-Odx" secondAttribute="bottom" constant="20" id="TVf-zq-mVl"/>
+                            <constraint firstItem="gRv-h5-yJo" firstAttribute="top" secondItem="xgS-rA-0te" secondAttribute="top" id="U40-JI-jgy"/>
+                            <constraint firstItem="hT8-vu-Odx" firstAttribute="top" secondItem="f3I-Zf-jbz" secondAttribute="bottom" constant="8" id="fov-OC-zu8"/>
+                            <constraint firstItem="Zdu-3n-ss7" firstAttribute="top" secondItem="Txp-0S-a4R" secondAttribute="bottom" constant="20" id="fr3-Fs-Q5g"/>
+                            <constraint firstItem="f3I-Zf-jbz" firstAttribute="leading" secondItem="xgS-rA-0te" secondAttribute="leading" constant="20" id="hVc-vO-eLP"/>
+                            <constraint firstItem="f3I-Zf-jbz" firstAttribute="top" secondItem="Zdu-3n-ss7" secondAttribute="bottom" constant="20" id="owC-d4-ctW"/>
+                            <constraint firstItem="xgS-rA-0te" firstAttribute="trailing" secondItem="f3I-Zf-jbz" secondAttribute="trailing" constant="20" id="pAd-qr-ZAc"/>
+                            <constraint firstItem="xgS-rA-0te" firstAttribute="trailing" secondItem="Txp-0S-a4R" secondAttribute="trailing" constant="20" id="qUk-yg-IUs"/>
+                            <constraint firstItem="Txp-0S-a4R" firstAttribute="top" secondItem="gRv-h5-yJo" secondAttribute="bottom" constant="20" id="rbD-el-kwB"/>
+                            <constraint firstItem="xgS-rA-0te" firstAttribute="trailing" secondItem="gRv-h5-yJo" secondAttribute="trailing" constant="20" id="x8Z-hH-FOF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xgS-rA-0te"/>
                     </view>
                     <navigationItem key="navigationItem" id="oNT-6W-bva"/>
@@ -124,7 +143,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeN-dK-SbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="uTj-kf-Ui6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="118"/>
+            <point key="canvasLocation" x="1892.753623188406" y="117.85714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0X8-81-g5M">
