@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" id="ot1-Uq-o4u">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="uVD-Oq-tXK">
                             <connections>
-                                <segue destination="cgV-XM-7Xc" kind="show" id="e5E-VT-mF8"/>
+                                <segue destination="cgV-XM-7Xc" kind="show" identifier="settings" id="e5E-VT-mF8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

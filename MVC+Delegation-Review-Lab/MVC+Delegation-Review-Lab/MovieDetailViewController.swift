@@ -9,15 +9,16 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-    @IBOutlet weak var userFeedBackLabel: UILabel!
-    @IBOutlet weak var fontSizeSlider: UISlider!
-    @IBOutlet weak var fontSizeStepper: UIStepper!
-    @IBOutlet weak var previewFontSize: UILabel!
+    @IBOutlet weak var userFeedBackLabel: UILabel?
+    @IBOutlet weak var fontSizeSlider: UISlider?
+    @IBOutlet weak var fontSizeStepper: UIStepper?
+    @IBOutlet weak var previewFontSize: UILabel?
     
     var fontSizeD: CGFloat? {
         didSet{
-            userFeedBackLabel.font = UIFont.systemFont(ofSize: fontSizeD!)
-            previewFontSize.text = "Preview Font Size: \(Int(fontSizeD!))"
+            print(fontSizeD)
+            userFeedBackLabel?.font = UIFont.systemFont(ofSize: fontSizeD!)
+            previewFontSize?.text = "Preview Font Size: \(Int(fontSizeD!))"
             configureSlider()
             configureStepper()
         }
@@ -25,7 +26,8 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previewFontSize.text = "Preview Font Size: \(fontSizeD)"
+        userFeedBackLabel?.text = "Change Table View Font Size"
+        previewFontSize?.text = "Preview Font Size: \(Int(fontSizeD!))"
         configureSlider()
         configureStepper()
         // Do any additional setup after loading the view.
@@ -39,16 +41,16 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureSlider(){
-        fontSizeSlider.minimumValue = 1.0
-        fontSizeSlider.maximumValue = 80.0
-        fontSizeSlider.value = Float(fontSizeD!)
+        fontSizeSlider?.minimumValue = 1.0
+        fontSizeSlider?.maximumValue = 80.0
+        fontSizeSlider?.value = Float(fontSizeD!)
     }
     
     func configureStepper(){
-        fontSizeStepper.minimumValue = 1.0
-        fontSizeStepper.maximumValue = 80.0
-        fontSizeStepper.stepValue = 1.0
-        fontSizeStepper.value = Double(fontSizeD!)
+        fontSizeStepper?.minimumValue = 1.0
+        fontSizeStepper?.maximumValue = 80.0
+        fontSizeStepper?.stepValue = 1.0
+        fontSizeStepper?.value = Double(fontSizeD!)
     }
 
     

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
     }
     
-    var fontSize:CGFloat? {
+    var fontSize:CGFloat! {
         didSet{
             tableView.reloadData()
         }
@@ -37,21 +37,27 @@ class ViewController: UIViewController {
         fontSize = 13.0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settings"{
+            guard let detailVC = segue.destination as? MovieDetailViewController else {
+                fatalError("failed to access MovieDetailViewController as dest")
+            }
+        
+            detailVC.fontSizeD = fontSize
+        } else {
+            print("failed to segue")
+        }
+    }
+    
     @IBAction func settings(segue: UIStoryboardSegue) {
         guard let detailVC = segue.source as? MovieDetailViewController else {
-            fatalError("failed to access MovieDetailViewController")
+            fatalError("failed to access MovieDetailViewController as src")
         }
         
         fontSize = detailVC.fontSizeD
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailVC = segue.destination as? MovieDetailViewController else {
-            fatalError("failed to access MovieDetailViewController")
-        }
-        
-        detailVC.fontSizeD = fontSize
-    }
+    
 
 }
 
