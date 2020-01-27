@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol FontSizeDelegate: AnyObject {
+    func fontSizePassed(_ viewController: MovieDetailViewController, fontSize: CGFloat)
+}
+
 class MovieDetailViewController: UIViewController {
     @IBOutlet weak var userFeedBackLabel: UILabel!
     @IBOutlet weak var fontSizeSlider: UISlider!
     @IBOutlet weak var fontSizeStepper: UIStepper!
     @IBOutlet weak var previewFontSize: UILabel!
+    @IBOutlet weak var tempBackButton: UIButton!
     
     var fontSizeD: CGFloat? {
         didSet{
@@ -21,8 +26,11 @@ class MovieDetailViewController: UIViewController {
 //            previewFontSize?.text = "Preview Font Size: \(String(format:"%0.f",(fontSizeD!)))"
 //            configureSlider()
 //            configureStepper()
+            delegate?.fontSizePassed(self, fontSize: fontSizeD!)
         }
     }
+    
+    weak var delegate: FontSizeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +40,7 @@ class MovieDetailViewController: UIViewController {
         configureStepper()
         updatedUI()
         // Do any additional setup after loading the view.
+        tempBackButton.isHidden = true
     }
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         fontSizeD = CGFloat(sender.value)

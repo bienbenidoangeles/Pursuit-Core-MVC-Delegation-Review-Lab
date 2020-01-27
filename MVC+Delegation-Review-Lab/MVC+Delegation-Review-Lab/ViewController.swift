@@ -43,6 +43,7 @@ class ViewController: UIViewController {
             guard let detailVC = segue.destination as? MovieDetailViewController else {
                 fatalError("failed to access MovieDetailViewController as dest")
             }
+            detailVC.delegate = self
         
             detailVC.fontSizeD = fontSize
         } else {
@@ -57,9 +58,12 @@ class ViewController: UIViewController {
         
         fontSize = detailVC.fontSizeD
     }
-    
-    
+}
 
+extension ViewController: FontSizeDelegate{
+    func fontSizePassed(_ viewController: MovieDetailViewController, fontSize: CGFloat) {
+        self.fontSize = fontSize
+    }
 }
 
 extension ViewController:UITableViewDataSource{
